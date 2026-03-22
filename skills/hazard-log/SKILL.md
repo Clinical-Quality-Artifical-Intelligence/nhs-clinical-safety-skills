@@ -200,3 +200,7 @@ Change triggers: System update, clinical incident, new integration, annual revie
 > This skill supports hazard identification but does not replace formal FMEA facilitation
 > by a qualified clinical safety professional. All hazard logs must be reviewed and
 > approved by a nominated DCSO before use in compliance submissions.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

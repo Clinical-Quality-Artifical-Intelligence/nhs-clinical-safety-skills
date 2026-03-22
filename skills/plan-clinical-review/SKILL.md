@@ -131,3 +131,7 @@ What would block NMC/patient safety compliance?
 >
 > This review is grounded in NMC Standards (2018), DCB0129/DCB0160 clinical safety
 > standards, NHS NICE guidance, and clinical nursing practice in England.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

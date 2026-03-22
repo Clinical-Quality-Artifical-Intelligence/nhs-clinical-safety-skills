@@ -133,3 +133,7 @@ Issues that MUST be fixed before this tool can be used in clinical or educationa
 >
 > [Conditional: list specific conditions that must be met]
 > [Blocked: list specific blockers that prevent release]
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

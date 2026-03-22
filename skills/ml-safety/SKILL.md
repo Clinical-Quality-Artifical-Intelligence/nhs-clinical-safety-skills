@@ -281,3 +281,7 @@ ML SAFETY VERDICT: [Approved / Conditional / Blocked]
 > This skill supports ML safety assessment but does not replace specialist ML safety
 > engineering or MHRA regulatory advice. High-risk AI clinical tools (Class IIb/III SaMD)
 > require specialist regulatory engagement. The DCSO must review all AI safety assessments.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

@@ -293,3 +293,7 @@ is needed before the DCSO can sign.
 > This skill produces a draft CSCR for review by a qualified DCSO. The DCSO must
 > review, amend, and sign the final document. A document produced by AI cannot
 > substitute for the professional judgment of a clinically qualified DCSO.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

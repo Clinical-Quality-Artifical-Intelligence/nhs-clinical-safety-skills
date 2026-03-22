@@ -306,3 +306,7 @@ is missing and note what the DCSO needs to provide before finalising.
 > This skill produces a draft CRMP for review by a qualified DCSO. All clinical safety
 > plans must be reviewed and approved by the nominated DCSO before use. Claude cannot
 > act as a DCSO.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>

@@ -244,3 +244,7 @@ DCSO SIGN-OFF: [Pending / Complete]
 
 > This skill supports but does not replace the professional judgment of a qualified DCSO.
 > DCB0129 compliance requires a clinically qualified DCSO — Claude cannot fulfil this role.
+
+---
+
+<sub>Contains information from NHS England, licenced under the current version of the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>. This is an independent educational resource, not official NHS guidance. Not affiliated with or endorsed by NHS England, NMC, or NICE.</sub>
