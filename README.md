@@ -7,6 +7,7 @@
 [![Standards: DCB0129 / DCB0160](https://img.shields.io/badge/Standards-DCB0129%20%2F%20DCB0160-005EB8.svg)](https://digital.nhs.uk/services/clinical-safety/documentation)
 [![NMC: Standards 2018](https://img.shields.io/badge/NMC-Standards%202018-7B2D8B.svg)](https://www.nmc.org.uk/standards/standards-for-nurses/)
 [![Skills: 11](https://img.shields.io/badge/Skills-11-success.svg)](skills/)
+[![Languages: 10](https://img.shields.io/badge/Languages-10-orange.svg)](translations/README.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
@@ -278,6 +279,30 @@ These skills are informed by (but do not reproduce) the following standards. Alw
 > **Always verify.** Standards and guidance change. Check the original sources before relying on any content in a formal clinical safety process.
 
 For clinical safety queries: [clinical.safety@nhs.net](mailto:clinical.safety@nhs.net)
+
+---
+
+## Available Languages / Lugha Zinazopatikana / Mga Wikang Available
+
+The clinical safety glossary is available in **10 languages** to support internationally
+educated nurses (IENs) working in the NHS. All translations are AI-generated and
+need native speaker verification — [see how to contribute a correction](translations/README.md).
+
+| Language | Region | Link |
+|----------|--------|------|
+| 🇬🇧 English (original) | United Kingdom | [GLOSSARY.md](GLOSSARY.md) |
+| 🇵🇭 Filipino / Tagalog | Philippines | [translations/GLOSSARY.tagalog.md](translations/GLOSSARY.tagalog.md) |
+| 🇮🇳 Hindi / हिन्दी | India, Pakistan | [translations/GLOSSARY.hindi.md](translations/GLOSSARY.hindi.md) |
+| 🇳🇬 Yoruba | Nigeria | [translations/GLOSSARY.yoruba.md](translations/GLOSSARY.yoruba.md) |
+| 🌍 Swahili / Kiswahili | Kenya, Tanzania, Uganda, Zimbabwe | [translations/GLOSSARY.swahili.md](translations/GLOSSARY.swahili.md) |
+| 🇿🇼 Shona / ChiShona | Zimbabwe | [translations/GLOSSARY.shona.md](translations/GLOSSARY.shona.md) |
+| 🇫🇷 French / Français | West Africa, DRC, France, Belgium | [translations/GLOSSARY.french.md](translations/GLOSSARY.french.md) |
+| 🇪🇸 Spanish / Español | Latin America, Spain | [translations/GLOSSARY.spanish.md](translations/GLOSSARY.spanish.md) |
+| 🇸🇦 Arabic / العربية | MENA region | [translations/GLOSSARY.arabic.md](translations/GLOSSARY.arabic.md) |
+| 🇨🇳 Mandarin / 普通话 | China, Singapore, Malaysia | [translations/GLOSSARY.mandarin.md](translations/GLOSSARY.mandarin.md) |
+| 🇧🇷 Portuguese / Português | Brazil, Mozambique, Angola | [translations/GLOSSARY.portuguese.md](translations/GLOSSARY.portuguese.md) |
+
+[Request a language →](../../issues/new?template=skill-request.md) | [Verify a translation →](../../issues/new?template=clinical-content-error.md)
 
 ---
 
