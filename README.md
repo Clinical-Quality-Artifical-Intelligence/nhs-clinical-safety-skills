@@ -4,8 +4,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Content: OGL v3](https://img.shields.io/badge/Content-OGL%20v3-lightgrey.svg)](ATTRIBUTION.md)
-[![Standards: DCB0129 / DCB0160](https://img.shields.io/badge/Standards-DCB0129%20%2F%20DCB0160-green.svg)](https://digital.nhs.uk/services/clinical-safety/documentation)
-[![NMC: Standards 2018](https://img.shields.io/badge/NMC-Standards%202018-purple.svg)](https://www.nmc.org.uk/standards/standards-for-nurses/)
+[![Standards: DCB0129 / DCB0160](https://img.shields.io/badge/Standards-DCB0129%20%2F%20DCB0160-005EB8.svg)](https://digital.nhs.uk/services/clinical-safety/documentation)
+[![NMC: Standards 2018](https://img.shields.io/badge/NMC-Standards%202018-7B2D8B.svg)](https://www.nmc.org.uk/standards/standards-for-nurses/)
+[![Skills: 11](https://img.shields.io/badge/Skills-11-success.svg)](skills/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
@@ -45,20 +47,45 @@ This resource breaks that framework into structured, AI-assisted learning tools 
 
 ### Learning Path for Student Nurses
 
-```
-Start here if you're new to clinical safety:
+```mermaid
+flowchart TD
+    A([🩺 Start Here\nNew to clinical safety?]) --> B
 
-  /plan-clinical-review      ← What does safe digital nursing look like?
-       ↓
-  /review-clinical-safety    ← How do you audit a clinical tool?
-       ↓
-  /hazard-log                ← How do you identify and record hazards?
-       ↓
-  /dcb0129  or  /dcb0160    ← The full compliance frameworks
-       ↓
-  /safety-case               ← How do you write the safety argument?
-       ↓
-  /ml-safety                 ← What's different when AI is involved?
+    B[/plan-clinical-review\nWhat does safe digital\nnursing look like?]
+    B --> C
+
+    C[/review-clinical-safety\nHow do you audit\na clinical tool?]
+    C --> D
+
+    D[/hazard-log\nHow do you identify\nand record hazards?]
+    D --> E
+
+    E{Which role?}
+    E -->|Building health IT| F
+    E -->|NHS org deploying IT| G
+
+    F[/dcb0129\nManufacturer\ncompliance]
+    G[/dcb0160\nDeployer\ncompliance]
+
+    F --> H
+    G --> H
+
+    H[/safety-case\nWrite the Clinical\nSafety Case Report]
+    H --> I
+
+    I{AI/ML involved?}
+    I -->|Yes| J
+    I -->|No| K
+
+    J[/ml-safety\nML/AI safety\nassessment]
+    J --> K
+
+    K([✅ Ready for CATR\nClinical Authority\nto Release])
+
+    style A fill:#005EB8,color:#fff
+    style K fill:#007F3B,color:#fff
+    style E fill:#FFB81C,color:#000
+    style I fill:#FFB81C,color:#000
 ```
 
 ---
@@ -271,11 +298,27 @@ For clinical safety queries: [clinical.safety@nhs.net](mailto:clinical.safety@nh
 
 ---
 
+## Repository Contents
+
+| File | Purpose |
+|------|---------|
+| [`GLOSSARY.md`](GLOSSARY.md) | Plain-English definitions of clinical safety jargon |
+| [`RESOURCES.md`](RESOURCES.md) | Free further learning: NMC, NICE, MHRA, NHS Digital, FHIR |
+| [`DISCLAIMER.md`](DISCLAIMER.md) | What this resource is and isn't |
+| [`ATTRIBUTION.md`](ATTRIBUTION.md) | OGL copyright attribution and no-endorsement statement |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute clinical content safely |
+| [`CHANGELOG.md`](CHANGELOG.md) | Version history and clinical content review schedule |
+| [`LICENSE`](LICENSE) | MIT + OGL attribution |
+| [`install.sh`](install.sh) | One-command skill installer |
+| [`skills/`](skills/) | All 11 Claude Code skills |
+
+---
+
 ## Contributing
 
 We welcome contributions from nurses, DCSOs, health IT developers, and clinical informaticists. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Found an error in the clinical content? Please [open an issue](../../issues) with the correct source reference.
+Found an error in the clinical content? Please use the [Clinical Content Error](../../issues/new?template=clinical-content-error.md) issue template — clinical accuracy is our top priority.
 
 ---
 
