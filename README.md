@@ -49,38 +49,21 @@ This resource breaks that framework into structured, AI-assisted learning tools 
 
 ```mermaid
 flowchart TD
-    A([🩺 Start Here\nNew to clinical safety?]) --> B
-
-    B[/plan-clinical-review\nWhat does safe digital\nnursing look like?]
-    B --> C
-
-    C[/review-clinical-safety\nHow do you audit\na clinical tool?]
-    C --> D
-
-    D[/hazard-log\nHow do you identify\nand record hazards?]
-    D --> E
-
+    A([Start here — new to clinical safety]) --> B
+    B["/plan-clinical-review — what does safe digital nursing look like?"] --> C
+    C["/review-clinical-safety — how do you audit a clinical tool?"] --> D
+    D["/hazard-log — identify and record all clinical hazards"] --> E
     E{Which role?}
     E -->|Building health IT| F
     E -->|NHS org deploying IT| G
-
-    F[/dcb0129\nManufacturer\ncompliance]
-    G[/dcb0160\nDeployer\ncompliance]
-
-    F --> H
-    G --> H
-
-    H[/safety-case\nWrite the Clinical\nSafety Case Report]
-    H --> I
-
-    I{AI/ML involved?}
+    F["/dcb0129 — manufacturer compliance"] --> H
+    G["/dcb0160 — deployer compliance"] --> H
+    H["/safety-case — write the Clinical Safety Case Report"] --> I
+    I{AI or ML involved?}
     I -->|Yes| J
     I -->|No| K
-
-    J[/ml-safety\nML/AI safety\nassessment]
-    J --> K
-
-    K([✅ Ready for CATR\nClinical Authority\nto Release])
+    J["/ml-safety — ML/AI safety assessment"] --> K
+    K([Ready for CATR — Clinical Authority to Release])
 
     style A fill:#005EB8,color:#fff
     style K fill:#007F3B,color:#fff
