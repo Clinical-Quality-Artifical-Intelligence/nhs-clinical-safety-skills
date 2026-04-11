@@ -125,29 +125,22 @@ jobs:
         shell: bash
         run: |
           ERRORS=0
-          # Extract markdown link targets, excluding images and external URLs
-          # First strip image syntax, then extract link targets
-          sed 's/!\[/\n![/g' README.md | grep -v '^!\[' | \
-            grep -oE '\[[^]]*\]\([^)]+\)' | \
+          # Extract all markdown link targets from README, filter to local files only
+          grep -oE '\[[^]]*\]\([^)]+\)' README.md | \
             grep -oE '\([^)]+\)' | tr -d '()' | \
+            grep -v '^http' | grep -v '^mailto' | grep -v '^#' | grep -v '^\.\.' | \
+            sort -u > /tmp/local_links.txt
+
           while IFS= read -r link; do
-            # Skip empty lines
-            [ -z "$link" ] && continue
-            # Skip external URLs and anchors
-            case "$link" in
-              http://*|https://*|mailto:*|#*|../../*) continue ;;
-            esac
-            # Strip anchor fragments
-            file=$(echo "$link" | cut -d'#' -f1)
+            file="${link%%#*}"
             if [ -n "$file" ] && [ ! -f "$file" ] && [ ! -d "$file" ]; then
               echo "❌ Broken link in README.md: $link"
-              echo "FOUND_ERROR" >> /tmp/link_errors
+              ERRORS=$((ERRORS + 1))
             fi
-          done
+          done < /tmp/local_links.txt
+          rm -f /tmp/local_links.txt
 
-          if [ -f /tmp/link_errors ]; then
-            ERRORS=$(wc -l < /tmp/link_errors)
-            rm /tmp/link_errors
+          if [ "$ERRORS" -gt 0 ]; then
             echo "Found $ERRORS broken link(s)"
             exit 1
           fi
