@@ -165,12 +165,13 @@ cd nhs-clinical-safety-skills
 ./install.sh
 ```
 
-Restart Claude Code. All skills are available as `/skill-name` commands.
+Restart Claude Code. All skills are available as `/skill-name` commands — and Claude can also **invoke them autonomously** when your task matches a skill's description.
 
 ### Install a Single Skill
 
 ```bash
-cp skills/hazard-log/SKILL.md ~/.claude/commands/hazard-log.md
+mkdir -p ~/.claude/skills/hazard-log
+cp skills/hazard-log/SKILL.md ~/.claude/skills/hazard-log/SKILL.md
 ```
 
 ### Verify Install

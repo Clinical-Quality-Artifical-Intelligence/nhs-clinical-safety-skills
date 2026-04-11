@@ -6,6 +6,20 @@ Clinical content changes are marked with ⚕️. Breaking changes to skill forma
 
 ---
 
+## [1.2.0] — 2026-04-11
+
+### Changed
+- ⚠️ `install.sh` — Now installs skills to `~/.claude/skills/<name>/SKILL.md` (modern format)
+  instead of legacy `~/.claude/commands/<name>.md`. Enables autonomous skill invocation.
+- ⚠️ `install.sh` — Automatically cleans up legacy command files during upgrade.
+- `README.md` — Install instructions updated to reflect modern skills directory structure.
+
+### Fixed
+- `.gitignore` already excluded macOS `._*` resource fork files, confirmed no metadata
+  artefacts were tracked in git.
+
+---
+
 ## [1.1.0] — 2026-03-22
 
 ### Added
