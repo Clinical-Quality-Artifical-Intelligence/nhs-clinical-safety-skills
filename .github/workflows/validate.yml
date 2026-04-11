@@ -124,17 +124,28 @@ jobs:
       - name: Check internal links
         run: |
           ERRORS=0
-          # Extract markdown links to local files from README
-          links=$(grep -oP '\[.*?\]\((?!http|mailto|#|\.\./)([^)]+)\)' README.md | \
-                  grep -oP '\(([^)]+)\)' | tr -d '()' || true)
-          for link in $links; do
+          # Extract markdown link targets, excluding images and external URLs
+          # Match [text](path) but NOT ![img](url) and NOT [text](http...)
+          while IFS= read -r link; do
+            # Skip empty lines
+            [ -z "$link" ] && continue
+            # Skip external URLs
+            case "$link" in
+              http://*|https://*|mailto:*|#*) continue ;;
+            esac
             # Strip anchor fragments
             file=$(echo "$link" | cut -d'#' -f1)
+            # Skip relative parent links (../../)
+            case "$file" in
+              ../../*) continue ;;
+            esac
             if [ -n "$file" ] && [ ! -f "$file" ] && [ ! -d "$file" ]; then
               echo "❌ Broken link in README.md: $link"
               ERRORS=$((ERRORS + 1))
             fi
-          done
+          done < <(sed 's/!\[/\n![/g' README.md | grep -v '^!\[' | \
+                   grep -oE '\[.*?\]\([^)]+\)' | \
+                   grep -oE '\([^)]+\)' | tr -d '()')
 
           if [ "$ERRORS" -gt 0 ]; then
             exit 1
