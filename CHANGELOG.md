@@ -8,11 +8,23 @@ Clinical content changes are marked with ⚕️. Breaking changes to skill forma
 
 ## [1.2.0] — 2026-04-11
 
+### Added
+- `CODE_OF_CONDUCT.md` — Contributor Covenant adapted with clinical accuracy provisions
+- `CITATION.cff` — Machine-readable citation metadata for academic and clinical publications
+- `.github/CODEOWNERS` — PR review routing for clinical content vs. tooling
+- `.github/FUNDING.yml` — GitHub Sponsors configuration
+- `.github/workflows/validate.yml` — CI workflow: validates SKILL.md frontmatter, translation
+  completeness, community health files, install script integrity, and internal links
+
 ### Changed
 - ⚠️ `install.sh` — Now installs skills to `~/.claude/skills/<name>/SKILL.md` (modern format)
   instead of legacy `~/.claude/commands/<name>.md`. Enables autonomous skill invocation.
 - ⚠️ `install.sh` — Automatically cleans up legacy command files during upgrade.
-- `README.md` — Install instructions updated to reflect modern skills directory structure.
+- `README.md` — Install instructions updated; added Citing section, Code of Conduct reference,
+  and expanded Repository Contents table.
+
+### Removed
+- `.github/workflows/blank.yml` — Replaced placeholder CI with real validation workflow.
 
 ### Fixed
 - `.gitignore` already excluded macOS `._*` resource fork files, confirmed no metadata

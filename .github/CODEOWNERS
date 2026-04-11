@@ -1,0 +1,17 @@
+# CODEOWNERS — NHS Clinical Safety Skills
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files
+* @Clinical-Quality-Artifical-Intelligence/maintainers
+
+# Clinical safety skills — require clinical review
+skills/ @Clinical-Quality-Artifical-Intelligence/maintainers
+GLOSSARY.md @Clinical-Quality-Artifical-Intelligence/maintainers
+DISCLAIMER.md @Clinical-Quality-Artifical-Intelligence/maintainers
+
+# Translations — require clinical + language review
+translations/ @Clinical-Quality-Artifical-Intelligence/maintainers
+
+# CI and tooling
+.github/ @Clinical-Quality-Artifical-Intelligence/maintainers
+install.sh @Clinical-Quality-Artifical-Intelligence/maintainers

@@ -1,0 +1,142 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate skill files and markdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Check every skill has valid YAML frontmatter
+      - name: Validate SKILL.md frontmatter
+        run: |
+          echo "Checking all SKILL.md files have required frontmatter fields..."
+          ERRORS=0
+          for skill in skills/*/SKILL.md; do
+            name=$(basename "$(dirname "$skill")")
+
+            # Check frontmatter delimiters exist
+            if ! head -1 "$skill" | grep -q '^---$'; then
+              echo "❌ $name: Missing opening frontmatter delimiter"
+              ERRORS=$((ERRORS + 1))
+              continue
+            fi
+
+            # Extract frontmatter (between first two --- lines)
+            frontmatter=$(sed -n '2,/^---$/p' "$skill" | head -n -1)
+
+            # Check required fields
+            for field in name description; do
+              if ! echo "$frontmatter" | grep -q "^${field}:"; then
+                echo "❌ $name: Missing required field '$field'"
+                ERRORS=$((ERRORS + 1))
+              fi
+            done
+
+            # Check name matches directory
+            fm_name=$(echo "$frontmatter" | grep '^name:' | sed 's/^name: *//')
+            if [ "$fm_name" != "$name" ]; then
+              echo "❌ $name: Frontmatter name '$fm_name' does not match directory name '$name'"
+              ERRORS=$((ERRORS + 1))
+            fi
+
+            echo "✅ $name"
+          done
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo ""
+            echo "Found $ERRORS error(s)"
+            exit 1
+          fi
+          echo ""
+          echo "All skills validated successfully"
+
+      # Check skill count matches README badge
+      - name: Check skill count
+        run: |
+          SKILL_COUNT=$(find skills -name 'SKILL.md' | wc -l | tr -d ' ')
+          echo "Found $SKILL_COUNT skills"
+          if [ "$SKILL_COUNT" -lt 1 ]; then
+            echo "❌ No skills found"
+            exit 1
+          fi
+          echo "✅ $SKILL_COUNT skills present"
+
+      # Check all translations exist
+      - name: Validate translations
+        run: |
+          EXPECTED_LANGS="arabic french hindi mandarin portuguese shona spanish swahili tagalog yoruba"
+          ERRORS=0
+          for lang in $EXPECTED_LANGS; do
+            file="translations/GLOSSARY.${lang}.md"
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing translation: $file"
+              ERRORS=$((ERRORS + 1))
+            else
+              lines=$(wc -l < "$file" | tr -d ' ')
+              echo "✅ $lang ($lines lines)"
+            fi
+          done
+
+          if [ "$ERRORS" -gt 0 ]; then
+            exit 1
+          fi
+          echo ""
+          echo "All translations present"
+
+      # Check required community files exist
+      - name: Check community health files
+        run: |
+          ERRORS=0
+          for file in README.md LICENSE CONTRIBUTING.md SECURITY.md CHANGELOG.md \
+                      DISCLAIMER.md ATTRIBUTION.md CODE_OF_CONDUCT.md CITATION.cff; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing: $file"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $file"
+            fi
+          done
+
+          if [ "$ERRORS" -gt 0 ]; then
+            exit 1
+          fi
+
+      # Check install.sh is executable and valid
+      - name: Validate install script
+        run: |
+          if [ ! -x "install.sh" ]; then
+            echo "❌ install.sh is not executable"
+            exit 1
+          fi
+          bash -n install.sh
+          echo "✅ install.sh is valid and executable"
+
+      # Check for broken internal links in README
+      - name: Check internal links
+        run: |
+          ERRORS=0
+          # Extract markdown links to local files from README
+          links=$(grep -oP '\[.*?\]\((?!http|mailto|#|\.\./)([^)]+)\)' README.md | \
+                  grep -oP '\(([^)]+)\)' | tr -d '()' || true)
+          for link in $links; do
+            # Strip anchor fragments
+            file=$(echo "$link" | cut -d'#' -f1)
+            if [ -n "$file" ] && [ ! -f "$file" ] && [ ! -d "$file" ]; then
+              echo "❌ Broken link in README.md: $link"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ "$ERRORS" -gt 0 ]; then
+            exit 1
+          fi
+          echo "✅ All internal links valid"

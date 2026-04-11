@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+title: NHS Clinical Safety Skills for Claude Code
+message: >-
+  If you use this resource in your research, teaching, or publications,
+  please cite it using the metadata below.
+type: dataset
+authors:
+  - name: Clinical Quality Artificial Intelligence (CQAI)
+    website: https://github.com/Clinical-Quality-Artifical-Intelligence
+abstract: >-
+  An open educational resource providing AI-assisted clinical safety skills
+  for student nurses, newly qualified nurses, and Digital Clinical Safety
+  Officers (DCSOs). Covers DCB0129, DCB0160, hazard logs, safety cases,
+  ML/AI safety, and FHIR compliance. Available in 10 languages.
+keywords:
+  - clinical safety
+  - DCB0129
+  - DCB0160
+  - nursing education
+  - digital clinical safety officer
+  - NHS
+  - health IT
+  - patient safety
+  - hazard log
+  - Claude Code
+license: MIT
+repository-code: https://github.com/Clinical-Quality-Artifical-Intelligence/nhs-clinical-safety-skills
+version: 1.2.0
+date-released: "2026-04-11"
+references:
+  - type: standard
+    title: "DCB0129: Clinical Risk Management — Its Application in the Manufacture of Health IT Systems"
+    authors:
+      - name: NHS England
+    url: https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems
+  - type: standard
+    title: "DCB0160: Clinical Risk Management — Its Application in the Deployment and Use of Health IT Systems"
+    authors:
+      - name: NHS England
+    url: https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems
+  - type: standard
+    title: "Standards of Proficiency for Registered Nurses"
+    authors:
+      - name: Nursing and Midwifery Council
+    year: 2018
+    url: https://www.nmc.org.uk/standards/standards-for-nurses/standards-of-proficiency-for-registered-nurses/

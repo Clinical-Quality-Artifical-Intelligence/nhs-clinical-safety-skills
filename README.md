@@ -315,17 +315,30 @@ need native speaker verification — [see how to contribute a correction](transl
 | [`RESOURCES.md`](RESOURCES.md) | Free further learning: NMC, NICE, MHRA, NHS Digital, FHIR |
 | [`DISCLAIMER.md`](DISCLAIMER.md) | What this resource is and isn't |
 | [`ATTRIBUTION.md`](ATTRIBUTION.md) | OGL copyright attribution and no-endorsement statement |
+| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | Community standards and clinical accuracy expectations |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute clinical content safely |
+| [`CITATION.cff`](CITATION.cff) | Citation metadata for academic and clinical publications |
 | [`CHANGELOG.md`](CHANGELOG.md) | Version history and clinical content review schedule |
+| [`SECURITY.md`](SECURITY.md) | Clinical accuracy and security reporting policy |
 | [`LICENSE`](LICENSE) | MIT + OGL attribution |
 | [`install.sh`](install.sh) | One-command skill installer |
 | [`skills/`](skills/) | All 11 Claude Code skills |
 
 ---
 
+## Citing This Resource
+
+If you use these skills in research, teaching, or NHS publications, please cite:
+
+> Clinical Quality Artificial Intelligence (CQAI). *NHS Clinical Safety Skills for Claude Code* (v1.2.0). 2026. Available at: https://github.com/Clinical-Quality-Artifical-Intelligence/nhs-clinical-safety-skills
+
+See [`CITATION.cff`](CITATION.cff) for machine-readable citation metadata.
+
+---
+
 ## Contributing
 
-We welcome contributions from nurses, DCSOs, health IT developers, and clinical informaticists. See [CONTRIBUTING.md](CONTRIBUTING.md).
+We welcome contributions from nurses, DCSOs, health IT developers, and clinical informaticists. See [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 Found an error in the clinical content? Please use the [Clinical Content Error](../../issues/new?template=clinical-content-error.md) issue template — clinical accuracy is our top priority.
 
