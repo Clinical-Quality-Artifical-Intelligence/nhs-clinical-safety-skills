@@ -122,32 +122,33 @@ jobs:
 
       # Check for broken internal links in README
       - name: Check internal links
+        shell: bash
         run: |
           ERRORS=0
           # Extract markdown link targets, excluding images and external URLs
-          # Match [text](path) but NOT ![img](url) and NOT [text](http...)
+          # First strip image syntax, then extract link targets
+          sed 's/!\[/\n![/g' README.md | grep -v '^!\[' | \
+            grep -oE '\[[^]]*\]\([^)]+\)' | \
+            grep -oE '\([^)]+\)' | tr -d '()' | \
           while IFS= read -r link; do
             # Skip empty lines
             [ -z "$link" ] && continue
-            # Skip external URLs
+            # Skip external URLs and anchors
             case "$link" in
-              http://*|https://*|mailto:*|#*) continue ;;
+              http://*|https://*|mailto:*|#*|../../*) continue ;;
             esac
             # Strip anchor fragments
             file=$(echo "$link" | cut -d'#' -f1)
-            # Skip relative parent links (../../)
-            case "$file" in
-              ../../*) continue ;;
-            esac
             if [ -n "$file" ] && [ ! -f "$file" ] && [ ! -d "$file" ]; then
               echo "❌ Broken link in README.md: $link"
-              ERRORS=$((ERRORS + 1))
+              echo "FOUND_ERROR" >> /tmp/link_errors
             fi
-          done < <(sed 's/!\[/\n![/g' README.md | grep -v '^!\[' | \
-                   grep -oE '\[.*?\]\([^)]+\)' | \
-                   grep -oE '\([^)]+\)' | tr -d '()')
+          done
 
-          if [ "$ERRORS" -gt 0 ]; then
+          if [ -f /tmp/link_errors ]; then
+            ERRORS=$(wc -l < /tmp/link_errors)
+            rm /tmp/link_errors
+            echo "Found $ERRORS broken link(s)"
             exit 1
           fi
           echo "✅ All internal links valid"
